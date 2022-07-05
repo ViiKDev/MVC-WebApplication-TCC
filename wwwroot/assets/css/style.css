@@ -1,0 +1,14 @@
+.dropdown-item:hover {
+    background-color: gray;
+    transition: background-color .25s linear;
+}
+
+.spinClass:hover {
+    transition: .5s ease-in-out;
+    transform: rotate(30deg);
+}
+
+.spinClass {
+    transition: .5s ease-in-out;
+    transform: rotate(-30deg);
+}

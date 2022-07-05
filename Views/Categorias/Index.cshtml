@@ -1,0 +1,38 @@
+@model IEnumerable<TccAspNet.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categoria";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="container">
+        <h1 class="mb-4 mt-5">Filtros</h1>
+        <p>
+            <a asp-action="Create">Adicionar</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome do Filtro</th>
+                        @* <th scope="col">Referência para o Filtro (usado na criação de projetos)</th> *@
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.NomeFiltro)</td>
+                            @* <td>@Html.DisplayFor(modelItem => item.ReferenciaFiltro)</td> *@
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Alterar</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

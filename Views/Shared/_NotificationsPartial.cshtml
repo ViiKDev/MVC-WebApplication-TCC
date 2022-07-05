@@ -1,0 +1,52 @@
+@model HomeVM
+
+@if (Model.User != null)
+{
+    <div class="modal fade" id="notifics">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="close" class="btn" data-dismiss="modal">X</button>
+                    <h4 class="modal-title">Notificações</h4>
+                </div>
+                <div class="modal-body" style="padding-top:0!important;padding-bottom:0!important;">
+                    <div style="height:550px;text-align:left;">
+                        @foreach (var item in Model.Notificacoes)
+                        {
+                            <div style="height:50px;padding-top:17px;cursor:pointer;"
+                        onclick="notificationClick('/Home/ReadNotification?data=@item.Id', @item.Id)">
+                                <div id="@item.Id" class="@(item.Lida != true ? "numberCircle" : "numberCircle2")"
+                            style="color:rgb(255, 116, 116, 0);width:8px;line-height:8px;font-size:14px;">0</div>
+                                @*When clicked, increase size to full modal and be scrollable, to see all the message. Only
+                                    allow 1 to be clicked, if click another, close actual*@
+                                @*Notifications readed status reset if it's edited by admin, and user is notified again (another
+                                    insert for user or just put the red circle again on the message and send it to top, but the same
+                                    for admin (but with answers history))*@
+                                @*Ajax on _Layout to live update notification counter*@
+                                @*First appears the new ones, then the readed ones*@
+                                <p style="display:inline;color:black;margin-left:5px;">@item.Assunto</p>
+                                <p style="display:inline;"> - </p>
+                                <p style="display:inline;">@item.Resposta</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                        }
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function notificationClick(url, id) {
+        $.ajax({
+            url: url,
+            type: 'PUT'
+        })
+        console.log('#' + id);
+        $('#' + id).removeClass();
+        $('#' + id).attr('class', 'numberCircle2');
+    }
+</script>

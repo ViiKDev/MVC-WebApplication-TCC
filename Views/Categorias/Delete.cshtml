@@ -1,0 +1,36 @@
+@model TccAspNet.Models.Categoria
+
+@{
+    ViewData["Title"] = "Filtro";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <h1 class="mb-4 mt-5">Excluir</h1>
+        <h3>Você tem certeza que deseja excluir este item?</h3>
+        <div>
+            <h4>Filtro</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    Nome Filtro
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NomeFiltro)
+                </dd>
+                @* <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ReferenciaFiltro)
+                    </dt>
+                    <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ReferenciaFiltro)
+                    </dd> *@
+            </dl>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                <a asp-action="Index" class="btn btn-primary">Voltar à Listagem</a>
+            </form>
+        </div>
+    </div>
+</div>

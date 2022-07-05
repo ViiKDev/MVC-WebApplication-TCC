@@ -1,0 +1,36 @@
+@model TccAspNet.Models.Categoria
+
+@{
+    ViewData["Title"] = "Filtro";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="container">
+        <h4 class="mb-4 mt-5">Informações Detalhadas</h4>
+        <hr />
+        <dl class="row">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label class="control-label">Nome Filtro</label>
+                    <input asp-for="NomeFiltro" class="form-control" />
+                    <span asp-validation-for="NomeFiltro" class="text-danger"></span>
+                </div>
+                @* <div class="form-group">
+                    <label asp-for="ReferenciaFiltro" class="control-label"></label>
+                    <input asp-for="ReferenciaFiltro" class="form-control"
+                    placeholder="Como o filtro será referido no cadastro de Projetos" />
+                    <span asp-validation-for="ReferenciaFiltro" class="text-danger"></span>
+                    </div> *@
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </dl>
+        <div>
+            <hr>
+            <a asp-action="Index">Voltar à Listagem</a>
+        </div>
+    </div>
+</div>

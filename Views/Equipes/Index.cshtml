@@ -1,0 +1,48 @@
+@model IEnumerable<TccAspNet.Models.Equipe>
+
+@{
+    ViewData["Title"] = "Equipe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="container">
+        <h1 class="mb-4 mt-5">Equipe</h1>
+        <p>
+            <a asp-action="Create">Adicionar</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Imagem</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">
+                            Cargo
+                            <small>(Detalhes)</small>
+                        </th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Imagem)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cargo)
+                                <small class="d-block">Far far away, behind the word mountains</small>
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Alterar</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                                <a asp-action="SetRole" asp-route-id="@item.Id">Gerenciar Cargos</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

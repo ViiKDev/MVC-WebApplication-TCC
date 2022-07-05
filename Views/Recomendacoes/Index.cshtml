@@ -1,0 +1,43 @@
+@model IEnumerable<TccAspNet.Models.Recomendacao>
+
+@{
+    ViewData["Title"] = "Recomendação";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="container">
+        <h1 class="mb-4 mt-5">Recomendações</h1>
+        <p>
+            <a asp-action="Create">Adicionar</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Imagem</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Profissão</th>
+                        <th scope="col">Texto</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Imagem)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Profissao)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Texto)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Alterar</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

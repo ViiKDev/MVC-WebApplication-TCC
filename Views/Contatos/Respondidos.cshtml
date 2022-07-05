@@ -1,0 +1,71 @@
+@model IEnumerable<TccAspNet.Models.Contato>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<TccAspNet.Models.ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Respondido";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var usuario = await UserManager.FindByIdAsync(User.Claims.ToArray()[0].Value);
+}
+<div class="content">
+    <div class="container">
+        <h1 class="mb-4 mt-5">Respondidos</h1>
+        <div class="table-responsive">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome Completo</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Serviço</th>
+                        <th scope="col">Assunto</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        @if (item.Resposta != null)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.User.NomeCompleto)</td>
+                                <td>@Html.DisplayFor(modelItem => item.User.Email)</td>
+                                <td>
+                                    @if (@item.IdServico == 1)
+                                    {
+                                        <p>Test1</p>
+                                    }
+                                    else
+                                    {
+                                        @if (@item.IdServico == 2)
+                                        {
+                                            <p>Test2</p>
+                                        }
+                                        else
+                                        {
+                                            @if (@item.IdServico == 3)
+                                            {
+                                                <p>Test3</p>
+                                            }
+                                            else
+                                            {
+                                                @if (@item.IdServico == 4)
+                                                {
+                                                    <p>Contato</p>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.Assunto)</td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Editar Resposta</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

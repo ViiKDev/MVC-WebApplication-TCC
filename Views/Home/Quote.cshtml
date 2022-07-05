@@ -1,0 +1,138 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<TccAspNet.Models.ApplicationUser> SignInManager
+@inject UserManager<TccAspNet.Models.ApplicationUser> UserManager
+@model HomeVM
+@{
+    ViewBag.Subtitle = "Orçamento e Contato";
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5">
+    <div class="container py-5">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Contato - Orçamento Gratuito</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-white" asp-action="Index" asp-controller="Home">Início</a>
+                </li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Páginas</li>
+                <li class="breadcrumb-item"><a class="text-white" asp-action="Quote" asp-controller="Home">Contato -
+                        Orçamento Gratuito</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Feature Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fas fa-user-check fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">01</h1>
+                </div>
+                <h5>Designers Criativos</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fa fa-check fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">02</h1>
+                </div>
+                <h5>Serviços de Qualidade</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fas fa-drafting-compass fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">03</h1>
+                </div>
+                <h5>Consulta Gratuita</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fa fa-headphones fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">04</h1>
+                </div>
+                <h5>Atendimento ao Cliente</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feature Start -->
+
+
+<!-- Quote Start -->
+<div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
+    <div class="container quote px-lg-0">
+        <div class="row g-0 mx-lg-0">
+            <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="~/img/quote.jpg"
+                        style="object-fit: cover;" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                <div class="p-lg-5 pe-lg-0">
+                    <div class="section-title text-start">
+                        <h1 class="display-5 mb-4">Contato - Orçamento Gratuito</h1>
+                    </div>
+                    <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
+                        diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
+                    <form method="post">
+                        <div asp-validation-summary="All" hidden></div>
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6" style="display:flex;">
+                                <input class="form-control border-0" style="width:250px;" placeholder="Assunto"
+                                    asp-for="Formulario.Assunto"></input>
+                                <select id="optOrcCon" class="form-select border-0"
+                                    style="height: 55px;width:250px;margin-left:50px;" onchange="MudarPlaceholder()"
+                                    required asp-for="Formulario.IdServico">
+                                    <option value="">Selecione um Serviço</option>
+                                    <option value="1">Serviço 1</option>
+                                    <option value="2">Serviço 2</option>
+                                    <option value="3">Serviço 3</option>
+                                    <option value="4">Contato</option>
+                                </select>
+                                <span asp-validation-for="Formulario.IdServico" class="text-danger"></span>
+                            </div>
+                            <div class="col-12">
+                                <textarea id="txtArea" class="form-control border-0" placeholder="Detalhes Extras"
+                                    style="max-height:500px;" asp-for="Formulario.Detalhes"></textarea>
+                                <script>
+                                    function MudarPlaceholder() {
+                                        if (document.getElementById("optOrcCon").value == "4") {
+                                            document.getElementById("txtArea").placeholder = "Tire suas dúvidas aqui";
+                                        } else {
+                                            document.getElementById("txtArea").placeholder = "Detalhes Extras";
+                                        }
+                                    }
+                                </script>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}
+<!-- Quote End -->

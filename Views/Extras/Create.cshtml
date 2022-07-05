@@ -1,0 +1,41 @@
+@model TccAspNet.Models.Extra
+
+@{
+    ViewData["Title"] = "Extra";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="container">
+        <h4 class="mb-4 mt-5">Criar Novo</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Link" class="control-label"></label>
+                        <input asp-for="Link" class="form-control" />
+                        <span asp-validation-for="Link" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Horario" class="control-label"></label>
+                        <input asp-for="Horario" class="form-control" />
+                        <span asp-validation-for="Horario" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Endereco" class="control-label"></label>
+                        <input asp-for="Endereco" class="form-control" />
+                        <span asp-validation-for="Endereco" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+                <div>
+                    <hr>
+                    <a asp-action="Index">Voltar à Listagem</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

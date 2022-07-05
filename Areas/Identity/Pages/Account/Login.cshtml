@@ -1,0 +1,53 @@
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LW Construções :: Login</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+
+<body>
+    <form class="form-signin" method="post">
+        <div class="text-center mb-4">
+            <h1 class="display-4 my-3">LW Construções</h1>
+            <p class="h5">Acesso a Área Administrativa</p>
+        </div>
+
+        <div class="text-danger" asp-validation-summary="All"></div>
+
+        <div class="form-label-group">
+            <input class="form-control" asp-for="Input.Email" required autofocus>
+            <label asp-for="Input.Email"></label>
+        </div>
+
+        <div class="form-label-group">
+            <input class="form-control" asp-for="Input.Password" required>
+            <label asp-for="Input.Password"></label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input asp-for="Input.RememberMe"> @Html.DisplayNameFor(m => m.Input.RememberMe)
+            </label>
+        </div>
+        <button class="btn btn-lg btn-secondary btn-block" type="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted text-center">Copyright &copy; @DateTime.Now.Year LW Construções</p>
+
+        <partial name="_ValidationScriptsPartial">
+    </form>
+</body>
+
+</html>

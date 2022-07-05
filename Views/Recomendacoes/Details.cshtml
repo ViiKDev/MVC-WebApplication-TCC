@@ -1,0 +1,42 @@
+@model TccAspNet.Models.Recomendacao
+
+@{
+    ViewData["Title"] = "Recomendação";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="container">
+        <h4 class="mb-4 mt-5">Informações Detalhadas</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Imagem)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Imagem)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Profissao)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Profissao)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Texto)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Texto)
+            </dd>
+        </dl>
+        <div>
+            <hr>
+            <a asp-action="Index">Voltar à Listagem</a>
+        </div>
+    </div>
+</div>

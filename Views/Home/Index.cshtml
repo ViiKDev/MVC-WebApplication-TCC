@@ -1,0 +1,388 @@
+﻿@model HomeVM
+@{
+    ViewBag.Subtitle = "Início";
+}
+
+<!-- Carousel Start -->
+<div class="container-fluid p-0 pb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        @foreach (var item in Model.PaginasCarrossel)
+        {
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="~/img/@item.Imagem" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(53, 53, 53, .7);">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-8 text-center">
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">@item.Texto
+                                </h5>
+                                <h1 class="display-3 text-white animated slideInDown mb-4">@item.Descricao</h1>
+                                <a asp-fragment="scrollService"
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Leia Mais</a>
+                                <a asp-action="Quote" asp-controller="Home"
+                                class="btn btn-light py-md-3 px-md-5 animated slideInRight">Orçamento Gratuito</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @* <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="~/img/construcao1.jpeg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+            style="background: rgba(53, 53, 53, .7);">
+            <div class="container">
+            <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 text-center">
+            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Bem-Vindo à LW Construções!
+            </h5>
+            <h1 class="display-3 text-white animated slideInDown mb-4">Melhores Serviços de Construções
+            e Demais...</h1>
+            <a asp-fragment="scrollService"
+            class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Leia Mais</a>
+            <a asp-action="Quote" asp-controller="Home"
+            class="btn btn-light py-md-3 px-md-5 animated slideInRight">Orçamento Gratuito</a>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="~/img/construcao2.jpeg" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+            style="background: rgba(53, 53, 53, .7);">
+            <div class="container">
+            <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 text-center">
+            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Bem-Vindo à LW Construções!
+            </h5>
+            <h1 class="display-3 text-white animated slideInDown mb-4">Melhores Serviços de Construções
+            e Demais...</h1>
+            <a asp-fragment="scrollService"
+            class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Leia Mais</a>
+            <a asp-action="Quote" asp-controller="Home"
+            class="btn btn-light py-md-3 px-md-5 animated slideInRight">Orçamento Gratuito</a>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div> *@
+    </div>
+</div>
+<!-- Carousel End -->
+
+<!-- Feature Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fas fa-user-check fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">01</h1>
+                </div>
+                <h5>Designers Criativos</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fa fa-check fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">02</h1>
+                </div>
+                <h5>Serviços de Qualidade</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fas fa-drafting-compass fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">03</h1>
+                </div>
+                <h5>Consulta Gratuita</h5>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <div class="d-flex align-items-center justify-content-center bg-light"
+                        style="width: 60px; height: 60px;">
+                        <i class="fa fa-headphones fa-2x text-primary"></i>
+                    </div>
+                    <h1 class="display-1 text-light mb-0">04</h1>
+                </div>
+                <h5>Atendimento ao Cliente</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feature Start -->
+
+<!-- About Start -->
+<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+    <div class="container about px-lg-0">
+        <div class="row g-0 mx-lg-0">
+            <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="~/img/quote.jpg"
+                        style="object-fit: cover;" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                <div class="p-lg-5 pe-lg-0">
+                    <div class="section-title text-start">
+                        <h1 class="display-5 mb-4">Sobre Nós</h1>
+                    </div>
+                    <p class="mb-4 pb-2">Somos uma empresa especializada em serviços de construção e relacionados à,
+                        contamos com 11 funcionários, todos profissionais certificados. Além de atendermos
+                        nacionalmente, realizamos também atendimentos, reuniões e consultas com o cliente, tanto
+                        presencialmente como à distância!</p>
+                    <div class="row g-4 mb-4 pb-2">
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fa fa-users fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h2 class="text-primary mb-1" data-toggle="counter-up">1234</h2>
+                                    <p class="fw-medium mb-0">Clientes Satisfeitos</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fa fa-check fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h2 class="text-primary mb-1" data-toggle="counter-up">1234</h2>
+                                    <p class="fw-medium mb-0">Projetos Finalizados</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#equipes" class="btn btn-primary py-3 px-5">Explorar Mais</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Service Start -->
+<br id="scrollService"></br>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1 class="display-5 mb-5">Nossos Serviços</h1>
+        </div>
+        <div>
+            <ul>
+                @foreach (var item in Model.Servicos)
+                {
+                    <li>
+                        <p style="color:#AB7442;margin-bottom:0px;">@item.Nome</p>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+<!-- Feature Start -->
+<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+    <div class="container feature px-lg-0">
+        <div class="row g-0 mx-lg-0">
+            <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                <div class="p-lg-5 ps-lg-0">
+                    <div class="section-title text-start">
+                        <h1 class="display-5 mb-4">Por que nos Escolher?</h1>
+                    </div>
+                    <p class="mb-4 pb-2">Estamos a mais de 4 anos no mercado, sempre visando a qualidade do trabalho e o
+                        cuidado para/com os clientes. Contamos com uma vasta gama de serviços e preços bem acessíveis.
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fa fa-check fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-4">
+                                    <p class="mb-2">Serviços</p>
+                                    <h5 class="mb-0">de Qualidade</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fas fa-user-check fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-4">
+                                    <p class="mb-2">Designers</p>
+                                    <h5 class="mb-0">Criativos</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fas fa-drafting-compass fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-4">
+                                    <p class="mb-2">Consulta</p>
+                                    <h5 class="mb-0">Gratuita</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="fa fa-headphones fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-4">
+                                    <p class="mb-2">Atendimento</p>
+                                    <h5 class="mb-0">ao Cliente</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute img-fluid w-100 h-100" src="~/img/feature.jpg"
+                        style="object-fit: cover;" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feature End -->
+
+<br id="equipes"></br>
+<!-- Team Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1 class="display-5 mb-5">Membros da Equipe</h1>
+        </div>
+        <div class="row g-4">
+            @foreach (var item in Model.MEquipe)
+            {
+                <div class="col-lg-3 col-md-6 wow fadeInUpt" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="~/img/@item.Imagem" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-sm-square bg-white text-primary me-1"
+                                href="https://pt-br.facebook.com/lw.construcoes/" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-sm-square bg-white text-primary me-1"
+                                href="https://web.whatsapp.com/send?phone=+5514997136712&amp;text=Olá target="
+                                target="_blank"><i class="fab fas fa-phone-alt"></i></a>
+                                <a class="btn btn-sm-square bg-white text-primary me-0"
+                                href="https://www.instagram.com/lw.construcoes/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">@item.Nome</h5>
+                            <small>@item.Cargo</small>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="team-item">
+                                <div class="overflow-hidden position-relative">
+                                    <img class="img-fluid" src="~/img/team-2.jpg" alt="">
+                                    <div class="team-social">
+                                        <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                                <div class="text-center border border-5 border-light border-top-0 p-4">
+                                    <h5 class="mb-0">Nome Completo</h5>
+                                    <small>Designação</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="team-item">
+                                <div class="overflow-hidden position-relative">
+                                    <img class="img-fluid" src="~/img/team-3.jpg" alt="">
+                                    <div class="team-social">
+                                        <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                                <div class="text-center border border-5 border-light border-top-0 p-4">
+                                    <h5 class="mb-0">Nome Completo</h5>
+                                    <small>Designação</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="team-item">
+                                <div class="overflow-hidden position-relative">
+                                    <img class="img-fluid" src="~/img/team-4.jpg" alt="">
+                                    <div class="team-social">
+                                        <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                        <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                                <div class="text-center border border-5 border-light border-top-0 p-4">
+                                    <h5 class="mb-0">Nome Completo</h5>
+                                    <small>Designação</small>
+                                </div>
+                            </div>
+                        </div>-->
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1 class="display-5 mb-5">Recomendações</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            @foreach (var item in Model.Recomendacoes)
+            {
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="~/img/@item.Imagem"
+                    style="width: 90px; height: 90px;">
+                    <div class="testimonial-text text-center p-4">
+                        <p>@item.Texto
+                        </p>
+                        <h5 class="mb-1">@item.Nome</h5>
+                        <span class="fst-italic">@item.Profissao</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
